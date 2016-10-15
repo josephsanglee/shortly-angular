@@ -150,3 +150,6 @@ input[type=url]:focus {
   border-color: red;
 }
 
+.ng-pristine {
+  border-color: black;
+}
