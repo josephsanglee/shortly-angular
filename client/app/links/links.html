@@ -1,5 +1,12 @@
+<div class='navigation'>
+  <ul>
+    <li><a ng-href='/#/links' class='links'>All Links</a></li>
+    <li><a ng-href='/#/shorten' class='create'>Shorten</a></li>
+  </ul>
+</div>
 <div id='container' ng-controller='LinksController'>
-  <div class='info link' ng-repeat='link in data.links'>
+  <input placeholder="Filter..." ng-model='data.filterQuery'></input>
+  <div class='info link' ng-repeat="link in data.links | orderBy: '-visits' | filter: ">
     <div class='visits'><span class='count'>{{link.visits}}</span>Visits</div>
     <div class='title'>{{link.title}}</div>
     <div class='original'>{{link.url}}</div>

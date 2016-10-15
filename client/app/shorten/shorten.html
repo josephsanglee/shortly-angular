@@ -1,17 +1,15 @@
 <div id='container' ng-controller='ShortenController'>
-<!-- Your code here -->
-  <form>
-    <input class='text' type='text' name='url' ng-model='link.url'>
-    <input type='submit' value='add' ng-click="addLink(); link.url=''">
+  <div class='navigation'>
+    <ul>
+      <li><a ng-href='/#/links' class='links'>All Links</a></li>
+      <li><a ng-href='/#/shorten' class='create'>Shorten</a></li>
+    </ul>
+  </div>
+  <form name ="linkForm">
+    <input class='text' type='url' name='url' ng-model='link.url' placeholder="http://" required>
+    <input type='submit' value='Add Link' ng-click="addLink(); link.url=''" ng-disabled="linkForm.$invalid">
   </form>
-  <div class='message'></div>
-<!-- //take whatever is in the input and shove it into the link
-//run add link
-//then, do what with it???
--make a thing out of it 
--shove it into the database?
-  -or is it alredy been shoved on the post request
- -->
+  <p ng-show="linkForm.$invalid">Please enter a valid URL.</p>
 </div>
 
 
